@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DonutWorld.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class UserController : ControllerBase
     {
@@ -27,7 +27,7 @@ namespace DonutWorld.Api.Controllers
             _faultlessExecutionService = faultlessExecutionService;
         }
 
-        [HttpPost("Create", Name = "CreateUser")]
+        [HttpPost(Name = "CreateUser")]
         public async Task<Guid> CreateUser([FromBody]CreateUserModel createUserModel)
         {
             var result = await _faultlessExecutionService.TryExecuteAsync(async () => await _userService.CreateAsync(createUserModel)); 
@@ -35,7 +35,7 @@ namespace DonutWorld.Api.Controllers
             return result.ReturnValue;
         }
 
-        [HttpGet("Get", Name = "GetUser")]
+        [HttpGet("{id}", Name = "GetUser")]
         public async Task<UserModel> GetUser([FromQuery] Guid userId)
         {
             var result = await _faultlessExecutionService.TryExecuteAsync(async () => await _userService.FindByIdAsync(userId));
@@ -51,7 +51,7 @@ namespace DonutWorld.Api.Controllers
             return result.ReturnValue;
         }
 
-        [HttpPut("Update", Name = "UpdateUser")]
+        [HttpPut(Name = "UpdateUser")]
         public async Task<Guid> UpdateUser([FromBody] UpdateUserModel updateUserModel)
         {
             var result = await _faultlessExecutionService.TryExecuteAsync(async () => await _userService.UpdateAsync(updateUserModel));
@@ -59,7 +59,7 @@ namespace DonutWorld.Api.Controllers
             return result.ReturnValue;
         }
 
-        [HttpDelete("Delete", Name = "DeleteUser")]
+        [HttpDelete(Name = "DeleteUser")]
         public async Task<Guid> DeleteUser([FromQuery] Guid userId)
         {
             var result = await _faultlessExecutionService.TryExecuteAsync(async () => await _userService.DeleteAsync(userId));

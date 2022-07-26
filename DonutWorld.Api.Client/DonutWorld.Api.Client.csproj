@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Flurl" Version="3.0.5" />
+    <PackageReference Include="Flurl.Http" Version="3.2.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DonutWorld.Api.Client.Abstractions\DonutWorld.Api.Client.Abstractions.csproj" />
+    <ProjectReference Include="..\DonutWorld.Api.Models\DonutWorld.Api.Models.csproj" />
+  </ItemGroup>
+
+</Project>

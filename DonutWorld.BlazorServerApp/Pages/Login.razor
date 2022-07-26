@@ -1,0 +1,100 @@
+﻿@layout LoginLayout
+@page "/"
+<PageTitle>Login</PageTitle>
+@inject Api.Client.Abstractions.IUserLoginClient _userLoginClient
+@inject ILogger<Login> _logger
+@inject NavigationManager _navigationManager
+
+<style type="text/css">
+    #login-component-container {
+        background-color: rgb(237, 145, 173);
+        box-shadow:  0px 0px 30px rgb(126, 43, 9);
+    }
+
+    #login-component-form {
+        font-size: 17px;
+    }
+
+    #login-btn {
+        background-color: rgb(223, 183, 126);
+        border-style: solid;
+        border-width: 2px 2px 2px 2px;
+        color: black;
+    }
+
+    #login-btn:hover {
+        box-shadow:  0px 0px 20px rgb(215, 113, 134);
+        border-style: solid;
+        border-width: 2px 2px 2px 2px;
+    }
+
+    #login-component-container {
+      max-width: 70%;
+    }
+
+    #login-error-container {
+        max-height: 10%;
+    }
+
+    .validation-message{
+        font-size: 15px;
+    }
+</style>
+
+<div id="login-component-container" class="m-5 rounded">
+    <div id="donut-img-container" class="d-flex justify-content-center">
+        <img class="w-50 p-0 my-2" src="img/Donut.png" />
+    </div>
+
+    @if (displayValidationErrorMessages)
+    {
+        <div class="d-flex justify-content-center text-danger">
+            <label id="login-error-messages" class="m-2">@errorMessages</label>
+        </div>
+    }
+
+    <EditForm id="login-component-form" Model="@_loginModel" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+
+        <div class="mb-3 mx-3">
+            <label for="login-username" class="form-label">Username</label>
+            <InputText id="login-username" class="form-control form-control-sm" @bind-Value="_loginModel.Username" />
+            <ValidationMessage class="validation-message" For="@(() => _loginModel.Username)" />
+        </div>
+        <div class="mb-3 mx-3">
+            <label for="login-password" class="form-label">Password</label>
+            <InputText id="login-password" class="form-control form-control-sm"  @bind-Value="_loginModel.Password" />
+            <ValidationMessage class="validation-message" For="@(() => _loginModel.Password)" />
+        </div>
+        <div class="d-flex justify-content-center">
+            <button id="login-btn" class="btn btn-dark mb-2" type="submit">Login</button>
+        </div>
+    </EditForm>
+</div>
+
+@code {
+    private Models.LoginModel _loginModel = new();
+    bool displayValidationErrorMessages = false;
+    string errorMessages = "";
+
+    private async void HandleValidSubmit()
+    {
+        Api.Models.UserLoginModel userLoginModel = new()
+        {
+            Username = _loginModel.Username,
+            Password = _loginModel.Password
+        };
+
+        try
+        {
+            await _userLoginClient.LoginAsync(userLoginModel);
+
+            _navigationManager.NavigateTo("/index", false);
+        }
+        catch(Exception ex)
+        {
+            errorMessages = "The username or password is incorrect.";
+            displayValidationErrorMessages = true;
+        }
+    }
+}

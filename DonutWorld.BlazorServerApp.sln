@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonutWorld.BlazorServerApp", "DonutWorld.BlazorServerApp\DonutWorld.BlazorServerApp.csproj", "{9988CA5C-A883-4758-A840-725B797F9AF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DonutWorld.BlazorServerApp", "DonutWorld.BlazorServerApp\DonutWorld.BlazorServerApp.csproj", "{9988CA5C-A883-4758-A840-725B797F9AF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DonutWorld.Api.Client", "DonutWorld.Api.Client", "{7193F78B-220E-484D-B8B3-9B29B0BE88FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DonutWorld.Api.Client", "DonutWorld.Api.Client\DonutWorld.Api.Client.csproj", "{A85B2076-26A8-4195-9108-D1E13F838DEB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DonutWorld.Api.Client.Abstractions", "DonutWorld.Api.Client.Abstractions\DonutWorld.Api.Client.Abstractions.csproj", "{51A9825F-AC81-4B55-95FC-3B5FD7097436}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DonutWorld.Api.Client.Bootstrapper", "DonutWorld.Api.Client.Bootstrapper\DonutWorld.Api.Client.Bootstrapper.csproj", "{D2D09B4F-ED03-4D22-97EE-AE4026950C1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DonutWorld.Api.Models", "DonutWorld.Api.Models\DonutWorld.Api.Models.csproj", "{14B7FE6C-8963-46AE-95D1-58D249A00F50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +25,31 @@ Global
 		{9988CA5C-A883-4758-A840-725B797F9AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9988CA5C-A883-4758-A840-725B797F9AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9988CA5C-A883-4758-A840-725B797F9AF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A85B2076-26A8-4195-9108-D1E13F838DEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A85B2076-26A8-4195-9108-D1E13F838DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A85B2076-26A8-4195-9108-D1E13F838DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A85B2076-26A8-4195-9108-D1E13F838DEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A9825F-AC81-4B55-95FC-3B5FD7097436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A9825F-AC81-4B55-95FC-3B5FD7097436}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A9825F-AC81-4B55-95FC-3B5FD7097436}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A9825F-AC81-4B55-95FC-3B5FD7097436}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2D09B4F-ED03-4D22-97EE-AE4026950C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2D09B4F-ED03-4D22-97EE-AE4026950C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2D09B4F-ED03-4D22-97EE-AE4026950C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2D09B4F-ED03-4D22-97EE-AE4026950C1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14B7FE6C-8963-46AE-95D1-58D249A00F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14B7FE6C-8963-46AE-95D1-58D249A00F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14B7FE6C-8963-46AE-95D1-58D249A00F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14B7FE6C-8963-46AE-95D1-58D249A00F50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A85B2076-26A8-4195-9108-D1E13F838DEB} = {7193F78B-220E-484D-B8B3-9B29B0BE88FC}
+		{51A9825F-AC81-4B55-95FC-3B5FD7097436} = {7193F78B-220E-484D-B8B3-9B29B0BE88FC}
+		{D2D09B4F-ED03-4D22-97EE-AE4026950C1A} = {7193F78B-220E-484D-B8B3-9B29B0BE88FC}
+		{14B7FE6C-8963-46AE-95D1-58D249A00F50} = {7193F78B-220E-484D-B8B3-9B29B0BE88FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B4268EA-0EB5-49D2-A316-0B0FFE066C87}

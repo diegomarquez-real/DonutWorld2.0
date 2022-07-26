@@ -8,7 +8,7 @@ using System.Text;
 namespace DonutWorld.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UserLoginController :  ControllerBase
     {
         private readonly IUserLoginService _userLoginService;
@@ -24,8 +24,10 @@ namespace DonutWorld.Api.Controllers
             _logger = logger;
         }
 
-        [HttpPost(Name = "Login")]
-        public async Task<IResult> LoginAsync(Models.UserLoginModel userLoginModel)
+        [HttpPost("Login", Name = "UserLogin")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> LoginAsync([FromBody]Models.UserLoginModel userLoginModel)
         {
             if (!String.IsNullOrEmpty(userLoginModel.Username) && !String.IsNullOrEmpty(userLoginModel.Password))
             {
@@ -33,7 +35,7 @@ namespace DonutWorld.Api.Controllers
 
                 if (loggedInUser == null)
                 {
-                    return Results.NotFound("User Not Found");
+                    return NotFound("User Not Found");
                 }
 
                 var claims = new[]
@@ -56,11 +58,11 @@ namespace DonutWorld.Api.Controllers
 
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-                return Results.Ok(tokenString);
+                return Ok(tokenString);
             }
             else
             {
-                return Results.NotFound();
+                return NotFound();
             }
         }
     }
