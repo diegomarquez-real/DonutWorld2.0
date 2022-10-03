@@ -36,9 +36,9 @@ namespace DonutWorld.Api.Controllers
         }
 
         [HttpGet("{id}", Name = "GetUser")]
-        public async Task<UserModel> GetUser([FromQuery] Guid userId)
+        public async Task<UserModel> GetUser([FromRoute] Guid id)
         {
-            var result = await _faultlessExecutionService.TryExecuteAsync(async () => await _userService.FindByIdAsync(userId));
+            var result = await _faultlessExecutionService.TryExecuteAsync(async () => await _userService.FindByIdAsync(id));
 
             return result.ReturnValue;
         }
@@ -59,8 +59,8 @@ namespace DonutWorld.Api.Controllers
             return result.ReturnValue;
         }
 
-        [HttpDelete(Name = "DeleteUser")]
-        public async Task<Guid> DeleteUser([FromQuery] Guid userId)
+        [HttpDelete("{id}", Name = "DeleteUser")]
+        public async Task<Guid> DeleteUser([FromRoute] Guid userId)
         {
             var result = await _faultlessExecutionService.TryExecuteAsync(async () => await _userService.DeleteAsync(userId));
 
