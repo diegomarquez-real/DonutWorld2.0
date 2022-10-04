@@ -3,8 +3,18 @@ using DonutWorld.Api.Services.Abstractions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using NLog.Web;
+using NLog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+//NLog Setup
+var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+builder.Host.ConfigureLogging(logging =>
+{
+    logging.ClearProviders();
+}).UseNLog();
 
 // Add services to the container.
 builder.Services.AddControllers();
