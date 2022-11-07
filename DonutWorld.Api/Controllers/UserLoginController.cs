@@ -1,4 +1,5 @@
-﻿using DonutWorld.Api.Services.Abstractions;
+﻿using DonutWorld.Api.Results;
+using DonutWorld.Api.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.IdentityModel.Tokens;
@@ -33,7 +34,7 @@ namespace DonutWorld.Api.Controllers
             var loggedInUser = await _userLoginService.LoginUser(userLoginModel);
 
             if (loggedInUser == null)
-                return NotFound("User Not Found");
+                return NotFound(new UserLoginResult() { Successful = false, Error = "User Not Found." });        
 
             var claims = new[]
             {
@@ -55,7 +56,7 @@ namespace DonutWorld.Api.Controllers
 
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-            return Ok(tokenString);
+            return Ok(new UserLoginResult() { Successful = true, Token = tokenString });
         }
     }
 }

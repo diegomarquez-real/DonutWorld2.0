@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DonutWorld.Api.Models\DonutWorld.Api.Models.csproj" />
+    <ProjectReference Include="..\DonutWorld.Api.Results\DonutWorld.Api.Results.csproj" />
     <ProjectReference Include="..\DonutWorld.Data.Bootstrapper\DonutWorld.Data.Bootstrapper.csproj" />
   </ItemGroup>
 

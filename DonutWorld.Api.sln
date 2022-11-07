@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DonutWorld.Data.Models", "D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DonutWorld.Api.Models", "DonutWorld.Api.Models\DonutWorld.Api.Models.csproj", "{B1E39A60-4F8D-449E-A223-7CF6A31B1A11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonutWorld.Api.Results", "DonutWorld.Api.Results\DonutWorld.Api.Results.csproj", "{32642E91-B808-4B61-BF32-B6B33E287E29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{B1E39A60-4F8D-449E-A223-7CF6A31B1A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1E39A60-4F8D-449E-A223-7CF6A31B1A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1E39A60-4F8D-449E-A223-7CF6A31B1A11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32642E91-B808-4B61-BF32-B6B33E287E29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32642E91-B808-4B61-BF32-B6B33E287E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32642E91-B808-4B61-BF32-B6B33E287E29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32642E91-B808-4B61-BF32-B6B33E287E29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
